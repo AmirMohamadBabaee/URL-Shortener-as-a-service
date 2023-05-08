@@ -4,11 +4,9 @@ import uvicorn
 import requests
 from redis import Redis
 from typing import Dict
-from dotenv import load_dotenv
 from fastapi import FastAPI, Request, Response, status
 from typing_extensions import Annotated
 
-load_dotenv()
 SERVER_PORT = int(os.getenv('SERVER_PORT'))
 EXPIRE_MINS = int(os.getenv('EXPIRE_MINS'))
 ENDPOINT_NAME = os.getenv('ENDPOINT_NAME')
