@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: url-shortener-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: url-shortener-deployment
+  template:
+    metadata:
+      labels:
+        app: url-shortener-deployment
+    spec:
+      containers:
+        - name: url-shortener-deployment
+          image: amir01/shortener-python
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 12345
+          envFrom:
+          - configMapRef:
+              name: url-shortener-config
