@@ -1,0 +1,1 @@
+kubectl run curl-alpine --image=amir01/curl-alpine --restart=Never --command -- /bin/sleep infinite
